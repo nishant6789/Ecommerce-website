@@ -23,7 +23,7 @@
 
           <div class="form-group col-md-6">
           <label for="inputname">Name</label>
-          <input type="text" class="form-control" id="name" name="name">
+          <input type="text" class="form-control" id="name" name="name" placehoder="Name">
            </div>
 
            <div class="form-group col-md-6">
@@ -50,7 +50,7 @@
        </div>
        <div class="form-group col-md-2">
              <label for="inputZip">Zip</label>
-             <input type="text" class="form-control" id="zip" name="zip">
+             <input type="text" class="form-control" id="zip_code" name="zip_code">
        </div>
        </div>
        <div class="form-group ">
@@ -89,5 +89,12 @@ for(item in cart){
    $('#items').append(mystr);
 }
 }
+document.getElementById('cart').innerHTML = sum;
+$('#itemsJson').val(JSON.stringify(cart));
+{% if thank %}
+alert('thanks for ordering with us. your order id is {{id}}. Use it to track your order using our tracker.')
+localStorage.clear();
+document.location = "/shop";
+{% endif %}
 </script>
 {% endblock %}
